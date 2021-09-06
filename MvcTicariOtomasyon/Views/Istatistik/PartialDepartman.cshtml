@@ -1,0 +1,49 @@
+﻿@model  IEnumerable<MvcTicariOtomasyon.Models.Sınıflar.SinifGrup2>
+
+
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Departman Tablosu</h3>
+
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Departman Adı</th>
+                        <th>Bar</th>
+                        <th style="width: 40px">Oran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int sirano = 0; int yuzde = 10;}
+                    @foreach (var item in Model)
+                    {
+                        yuzde = yuzde * item.Sayi;
+                        <tr>
+                            <td>@{sirano++;} @sirano.</td>
+                            <td>@item.Departman</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: @yuzde%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger" style="color:white">@item.Sayi</span></td>
+                        </tr>
+                        yuzde = 10;
+                    }
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- /.card -->
+</div>

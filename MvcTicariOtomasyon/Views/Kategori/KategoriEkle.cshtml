@@ -1,0 +1,20 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@model Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Kategori Ekle</h2>
+<hr />
+
+@using (Html.BeginForm("KategoriEkle","Kategori",FormMethod.Post))
+    {
+
+   @Html.TextBoxFor(x=>x.KategoriAd,new { @class = "form-control", @placeholder="Kategori Adı"})
+   <br />
+    <button class="btn btn-success" type="submit">Ekle</button>
+    }
+
+

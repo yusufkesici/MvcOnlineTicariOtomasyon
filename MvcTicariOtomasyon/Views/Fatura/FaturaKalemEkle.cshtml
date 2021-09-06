@@ -1,0 +1,21 @@
+﻿@model MvcTicariOtomasyon.Models.Sınıflar.FaturaKalem
+@{
+    ViewBag.Title = "FaturaKalemEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Kalem Girişi</h2>
+<hr />
+@using (Html.BeginForm("FaturaKalemEkle", "Fatura", FormMethod.Post))
+{
+    @*@Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control", @placeholder = "ID", @style = "margin-bottom:5px" })*@
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", @placeholder = "Açıklama", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", @placeholder = "Birim Fiyat", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", @placeholder = "Miktar", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", @placeholder = "Tutar", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.FaturaID, new { @Value = ViewBag.faturaid, @class = "form-control", @placeholder = "Fatura ID", @style = "margin-bottom:5px" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:coral;color:white" type="submit">Fatura Girişi Ekle</button>
+}

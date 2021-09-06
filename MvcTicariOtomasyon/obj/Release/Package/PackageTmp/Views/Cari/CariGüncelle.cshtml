@@ -1,0 +1,21 @@
+﻿@model MvcTicariOtomasyon.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariGüncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelle</h2>
+<hr />
+@using (Html.BeginForm("CariGüncelle", "Cari", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.CariID)
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", @placeholder = "Adı", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", @placeholder = "Soyadı", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", @placeholder = "Şehir", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", @placeholder = "Mail", @style = "margin-bottom:5px" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:coral;color:white" type="submit">Güncelle</button>
+}
+

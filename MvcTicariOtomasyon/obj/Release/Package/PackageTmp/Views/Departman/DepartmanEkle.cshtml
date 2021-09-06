@@ -1,0 +1,25 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@model Departman
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<h2>Departman Ekle</h2>
+<hr />
+@using (Html.BeginForm("DepartmanEkle", "Departman", FormMethod.Post))
+{ 
+    @Html.TextBoxFor(x=>x.DepartmanAd,new { @class = "form-control", @placeholder = "Departman Adı"})
+    <br />
+
+    <button class="btn btn-default" id="btn1" style="background-color:coral;color:white" type="submit">Ekle</button>
+
+   <script>
+       $('#btn1').click(function () {
+
+           alert("Departman Eklendi")
+       });
+   </script>
+}

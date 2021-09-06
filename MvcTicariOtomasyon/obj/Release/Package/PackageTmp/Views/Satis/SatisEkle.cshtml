@@ -1,0 +1,38 @@
+﻿@model MvcTicariOtomasyon.Models.Sınıflar.SatisHareket
+@{
+    ViewBag.Title = "SatisEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Satış Yap</h2>
+<hr />
+
+@using (Html.BeginForm("SatisEkle", "Satis", FormMethod.Post))
+{
+    @Html.Label("Ürün")
+    @Html.DropDownListFor(x => x.UrunID, (List<SelectListItem>)ViewBag.urunler, new { @class = "form-control", @style = "margin-bottom:5px" })
+    @Html.Label("Cari Adı")
+    @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.cariler, new { @class = "form-control", @style = "margin-bottom:5px" })
+    @Html.Label("Personel Adı")
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.personeller, new { @class = "form-control", @style = "margin-bottom:5px" })
+
+
+
+    @Html.Label("Satın Alınacak Adet")
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", @placeholder = "Adet", @style = "margin-bottom:5px" })
+    if (ViewBag.göster == false)
+    {
+        <div class="alert alert-danger" role="alert">
+            Stok Miktarından Fazla Adet Girdiniz!
+        </div>
+    }
+    @Html.Label("Fiyatı")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", @placeholder = "Fiyat", @style = "margin-bottom:5px" })
+    @Html.Label("Toplam Tutarı")
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", @placeholder = "ToplamTutar", @style = "margin-bottom:5px" })
+
+
+
+    <br />
+    <button class="btn btn-primary" type="submit">Satis Yap</button>
+}

@@ -1,0 +1,38 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-striped " style="margin:20px;height: 300px;">
+    <tr>
+        <th class="text text-center">ID</th>
+        <th class="text text-center">Ad</th>
+        <th class="text text-center">Soyad</th>
+        <th class="text text-center">Şehir</th>
+        <th class="text text-center">Mail</th>
+        <th style="padding-left:5em">İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text text-center">@item.CariID </td>
+            <td class="text text-center">@item.CariAd</td>
+            <td class="text text-center">@item.CariSoyad</td>
+            <td class="text text-center">@item.CariSehir</td>
+            <td class="text text-center">@item.CariMail</td>
+
+            <td>
+                <a href="/Cari/CariSil/@item.CariID" class="btn btn-danger ">Sil</a>
+                <a href="/Cari/CariGüncelle/@item.CariID" class="btn btn-info ">Güncelle</a>
+                <a href="/Cari/CariSatis/@item.CariID" class="btn btn-default " style="background-color:lightcoral;color:white">Satış Geçmişi</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Cari/CariEkle" class="btn btn-info" style="margin:20px">Yeni Cari Ekle</a>
+

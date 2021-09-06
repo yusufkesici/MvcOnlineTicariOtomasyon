@@ -1,0 +1,23 @@
+﻿@model  MvcTicariOtomasyon.Models.Sınıflar.Faturalar
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Girişi</h2>
+<hr />
+@using (Html.BeginForm("FaturaEkle", "Fatura", FormMethod.Post))
+{
+    @*@Html.TextBoxFor(x => x.FaturaID, new { @class = "form-control", @placeholder = "ID", @style = "margin-bottom:5px" })*@
+    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control", @placeholder = "Seri No", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control", @placeholder = "Sıra No", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", @placeholder = "Vergi Dairesi", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", @placeholder = "Teslim Eden", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", @placeholder = "Teslim Alan", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.Toplam, new { @class = "form-control", @placeholder = "Toplam", @style = "margin-bottom:5px" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:coral;color:white" type="submit">Fatura Girişi Ekle</button>
+}
+

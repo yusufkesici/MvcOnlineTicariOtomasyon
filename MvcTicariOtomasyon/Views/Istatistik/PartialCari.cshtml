@@ -1,0 +1,48 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@model List<Cariler>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cariler</h3>
+
+                
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0 "  style="height: 300px;">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cari</th>
+                            <th>Şehir</th>
+                            <th>Mail</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CariID</td>
+                                <td>@item.CariAd @item.CariSoyad</td>
+                                <td>@item.CariSehir</td>
+                                <td>@item.CariMail</td>
+                                
+                              
+                            </tr>
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

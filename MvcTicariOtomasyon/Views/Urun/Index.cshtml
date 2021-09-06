@@ -1,0 +1,52 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+ <p class="row">
+     @Html.TextBox("p","",new { @class="form-control col-md-5 mr-3 ml-5 ", @placeholder="Arama"})
+     <input type="submit" class="btn btn-outline-danger "   value="Ara"/>
+ </p>
+
+}
+<table class="table table-bordered " style="margin:20px">
+    <tr>
+        @*<th class="text text-center">ID</th>*@
+        <th class="text text-center">Urun</th>
+        <th class="text text-center">Marka</th>
+        <th class="text text-center">Stok</th>
+        <th class="text text-center">Alış Fiyat</th>
+        <th class="text text-center">Satış Fiyat</th>
+        <th class="text text-center">Kategori</th>
+        <th class="text text-center">Görsel</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td class="text text-center">@item.UrunID </td>*@
+            <td class="text text-center">@item.UrunAd </td>
+            <td class="text text-center">@item.Marka </td>
+            <td class="text text-center">@item.Stok </td>
+            <td class="text text-center">@item.AlisFiyat ₺</td>
+            <td class="text text-center">@item.SatisFiyat ₺</td>
+            <td class="text text-center">@item.Kategori.KategoriAd</td>
+            <td class="text text-center"> <img src="@item.UrunGorsel" style="width:130px;height:85px" /> </td>
+
+            <td>
+                <a href="/Urun/UrunSil/@item.UrunID" class="btn btn-danger ">Sil</a>
+                <a href="/Urun/UrunGuncelle/@item.UrunID" class="btn btn-info ">Güncelle</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Urun/UrunEkle" class="btn btn-info" style="margin:20px">Yeni Ürün Ekle</a>

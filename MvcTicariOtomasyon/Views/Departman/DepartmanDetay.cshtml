@@ -1,0 +1,41 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Detay-Personeller</h2>
+<hr />  
+
+<ol class="breadcrumb mb-4" >
+    <li class="breadcrumb-item active">@ViewBag.departmanAdı Departmanı</li>
+</ol>
+
+<table class="table table-hover " style="margin:20px">
+    <tr>
+        <th class="text text-center">ID</th>
+        <th class="text text-center">Adı</th>
+        <th class="text text-center">Soyadı</th>
+        <th class="text text-center">Departmanı</th>
+        <th class="text text-center">Görsel</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text text-center">@item.PersonelID </td>
+            <td class="text text-center">@item.PersonelAd </td>
+            <td class="text text-center">@item.PersonelSoyad </td>
+            <td class="text text-center">@item.Departman.DepartmanAd</td>
+            <td class="text text-center">@item.PersonelGorsel</td>
+
+            <td>
+                @*<a href="/Personel/PersonelSil/@item.DepartmanID" class="btn btn-danger ">Sil</a>
+                <a href="/Personel/PersonelGüncelle/@item.DepartmanID" class="btn btn-info ">Güncelle</a>
+                <a href="/Personel/PersonelDetay/@item.DepartmanID" class="btn btn-warning ">Detay</a>*@
+                <a href="/Departman/DepartmanPersonelSatıs/@item.PersonelID" class="btn btn-warning ">Satışlar</a>
+            </td>
+        </tr>
+
+    }

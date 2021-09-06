@@ -1,0 +1,44 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar;
+@model List<Kategori>
+
+@{
+    ViewBag.Title = "Kategori Page";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cariler</h3>
+
+
+
+                <div class="card-body table-responsive p-0" style="height:500px; width:auto">
+                    <table class="table table-hover text-nowrap" style="margin:20px">
+                        <thead>
+                            <tr>
+                                <th class="text text-center">ID</th>
+                                <th class="text text-center">Kategori Adı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text text-center">@item.KategoriID </td>
+                                    <td class="text text-center">@item.KategoriAd </td>
+
+                                    <td>
+                                        <a href="/Kategori/KategoriSil/@item.KategoriID" class="btn btn-danger ">Sil</a>
+                                        <a href="/Kategori/KategoriGüncelle/@item.KategoriID" class="btn btn-info ">Güncelle</a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/Kategori/KategoriEkle" class="btn btn-info" style="margin:20px">Yeni Kategori Ekle</a>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>

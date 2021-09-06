@@ -1,0 +1,36 @@
+﻿@model MvcTicariOtomasyon.Models.Sınıflar.Urun
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Ürün Ekle</h2>
+<hr />
+
+@using (Html.BeginForm("UrunEkle", "Urun", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @placeholder = "Ürün Adı", @style = "margin-bottom:5px" })
+
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control", @placeholder = "Markası", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control", @placeholder = "Stok", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control", @placeholder = "Alış Fiyatı", @style = "margin-bottom:5px" })
+    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @placeholder = "Satış Fiyatı", @style = "margin-bottom:5px" })
+    @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control", @style = "margin-bottom:5px" })
+    
+    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control", @placeholder = "Ürün Görseli", @style = "margin-bottom:5px" })
+
+
+    @*<select name="Kategoriid" id="Kategoriid" class="form-control">
+            <option value="0" selected="selected">Seçiniz</option>
+            @foreach (var item in ViewBag.kategoriler)
+            {
+
+                <option value="@item.KategoriID">@item.KategoriAd</option>
+
+            }
+        </select>*@
+    <br />
+    <button class="btn btn-primary" type="submit">Ürün Ekle</button>
+}
+

@@ -1,0 +1,88 @@
+﻿@using MvcTicariOtomasyon.Models.Sınıflar;
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered " style="margin:20px">
+    <tr>
+        <th class="text text-center">ID</th>
+        <th class="text text-center">Seri No</th>
+        <th class="text text-center">Sıra No</th>
+        <th class="text text-center">Vergi Dairesi</th>
+        <th class="text text-center">Tarih</th>
+
+        @*<th class="text text-center">Saat</th>*@
+
+        <th class="text text-center">Teslim Eden</th>
+        <th class="text text-center">Teslim Alan</th>
+        <th class="text text-center">Toplam</th>
+        <th class="text text-center">Güncelle</th>
+        <th class="text text-center">Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text text-center">@item.FaturaID</td>
+            <td class="text text-center">@item.FaturaSeriNo</td>
+            <td class="text text-center">@item.FaturaSıraNo</td>
+            <td class="text text-center">@item.VergiDairesi</td>
+            <td class="text text-center">@item.Tarih</td>
+            @*<td class="text text-center">@item.Saat</td>*@
+
+            <td class="text text-center">@item.TeslimEden</td>
+            <td class="text text-center">@item.TeslimAlan</td>
+            <td class="text text-center">@item.Toplam</td>
+
+            <td>
+
+                <a href="/Fatura/FaturaGüncelle/@item.FaturaID" class="btn btn-info ">Güncelle</a>
+
+            </td>
+            <td>
+                <a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-warning ">Detay</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Fatura/FaturaEkle" class="btn btn-info" style="margin:20px">Yeni Fatura Ekle</a>
+
+
+<button class="btn btn-warning" style="margin:20px" data-toggle="modal" data-target="#Modal1"> Pop-Up Penceresi</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Pop-Up Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Seri No</th>
+                        <th>Sıra No</th>
+                        <th>Toplam</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaSeriNo</td>
+                            <td>@item.FaturaSıraNo</td>
+                            <td>@item.Toplam</td>
+
+                        </tr>
+
+                    }
+                </table>
+                <button class="btn btn-danger" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
